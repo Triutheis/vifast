@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4G Việt Qualiti - Link Mạng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Custom CSS */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .hidden {
+            display: none;
+        }
+        .info-box {
+            background-color: #e3f2fd;
+            border: 1px solid #90caf9;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        .copy-btn {
+            background-color: #2196f3;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 16px;
+            cursor: pointer;
+            margin-top: 8px;
+        }
+        .copy-btn:hover {
+            background-color: #1976d2;
+        }
+        /* Nút hỗ trợ khách hàng */
+        .support-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0068ff;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+        }
+        .support-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="flex justify-between items-center p-4 border-b">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-wifi text-blue-500 text-2xl"></i>
+            <span class="text-xl font-bold text-blue-500">4G VIỆT QUALITI</span>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="flex justify-center space-x-8 p-4 border-b">
+        <a href="index.html" class="text-gray-700 hover:text-blue-500">Trang chủ</a>
+        <a href="mua-goi.html" class="text-gray-700 hover:text-blue-500">Gói Cước VPN</a>
+        <a href="goi-nen.html" class="text-gray-700 hover:text-blue-500">Gói Nền</a>
+        <a href="lay-link.html" class="text-blue-500 hover:text-blue-700">Link Mạng</a>
+        <a href="huong-dan.html" class="text-gray-700 hover:text-blue-500">Hướng Dẫn</a>
+    </nav>
+
+    <!-- Main Content (Lấy Link Gói Mạng) -->
+    <main class="flex flex-col items-center p-8">
+        <h1 class="text-3xl font-bold text-blue-500 mb-4">4G Việt Qualiti</h1>
+        <h2 class="text-xl font-semibold mb-2">Lấy Link gói mạng</h2>
+        <p class="text-center mb-4">Nhập Email đã đăng ký gói vào ô dưới</p>
+        <input type="email" id="email-input" class="border p-2 rounded mb-4 w-64 text-center" placeholder="Nhập email">
+        <button id="confirm-btn" class="bg-blue-500 text-white px-4 py-2 rounded mb-4 hover:bg-blue-700">Xác nhận</button>
+
+        <!-- Dynamic Content for Specific Emails -->
+        <div id="dynamic-content" class="hidden">
+            <div class="info-box">
+                <div class="flex items-center space-x-2 mb-4">
+                    <i class="fas fa-envelope text-2xl text-blue-500"></i>
+                    <span class="font-semibold">Link gói mạng VPN</span>
+                </div>
+                <div id="account-info" class="text-center">
+                    <p>Link Gói Mạng: <span id="account-email"></span></p>
+                    <p>Hạn sử dụng: <span id="account-status"></span></p>
+                </div>
+                <button id="copy-btn" class="copy-btn">Sao chép link</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript -->
+    <script>
+        // Lấy các phần tử DOM
+        const emailInput = document.getElementById('email-input');
+        const confirmBtn = document.getElementById('confirm-btn');
+        const dynamicContent = document.getElementById('dynamic-content');
+        const accountEmail = document.getElementById('account-email');
+        const accountStatus = document.getElementById('account-status');
+        const copyBtn = document.getElementById('copy-btn');
+
+        // Biến lưu trữ dữ liệu từ file JSON
+        let accountsData = {};
+
+        // Tải dữ liệu từ file JSON
+        fetch('dataemail.json')
+            .then(response => response.json())
+            .then(data => {
+                accountsData = data.accounts; // Lưu dữ liệu vào biến accountsData
+            })
+            .catch(error => console.error('Lỗi khi tải dữ liệu:', error));
+
+        // Xử lý sự kiện khi nhấn nút "Xác nhận"
+        confirmBtn.addEventListener('click', () => {
+            const email = emailInput.value.trim();
+            if (accountsData[email]) {
+                // Hiển thị thông tin tài khoản
+                accountEmail.textContent = accountsData[email].email;
+                accountStatus.textContent = accountsData[email].status;
+                dynamicContent.classList.remove('hidden');
+            } else {
+                alert("Email không tồn tại trong hệ thống.");
+            }
+        });
+
+        // Xử lý sự kiện khi nhấn nút "Sao chép link"
+        copyBtn.addEventListener('click', () => {
+            const accountInfo = `${accountEmail.textContent}`;
+            navigator.clipboard.writeText(accountInfo)
+                .then(() => alert("Đã sao chép link gói mạng!"))
+                .catch(() => alert("Lỗi khi sao chép thông tin."));
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="flex flex-col items-center">
+            <p class="mb-4">© 2023 4G Việt Qualiti. Copyrights Nông Triệu Thái.</p>
+            <div class="flex space-x-4">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nút hỗ trợ khách hàng -->
+    <a href="https://zalo.me/0389293178" target="_blank" class="support-button">
+        <i class="fas fa-headset text-2xl"></i>
+    </a>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hướng Dẫn - 4G Việt Qualiti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Custom CSS */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+        }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button {
+            background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        /* Nút hỗ trợ khách hàng */
+        .support-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0068ff;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+        }
+        .support-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="flex justify-between items-center p-4 border-b">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-wifi text-blue-500 text-2xl"></i>
+            <span class="text-xl font-bold text-blue-500">4G VIỆT QUALITI</span>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="flex justify-center space-x-8 p-4 border-b">
+        <a href="index.html" class="text-gray-700 hover:text-blue-500">Trang chủ</a>
+        <a href="mua-goi.html" class="text-gray-700 hover:text-blue-500">Gói Cước VPN</a>
+        <a href="goi-nen.html" class="text-gray-700 hover:text-blue-500">Gói Nền</a>
+        <a href="lay-link.html" class="text-gray-700 hover:text-blue-500">Link Mạng</a>
+        <a href="huong-dan.html" class="text-blue-500 hover:text-blue-700">Hướng Dẫn</a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex flex-col items-center p-8">
+        <h1 class="text-3xl font-bold text-blue-500 mb-8">Hướng Dẫn Sử Dụng</h1>
+
+        <!-- Hướng dẫn 1 -->
+        <div class="w-full max-w-2xl mb-8">
+            <h2 class="text-2xl font-bold text-blue-500 mb-4">1. Cách đăng ký gói cước</h2>
+            <p class="text-gray-700 mb-4">Để đăng ký gói cước, vui lòng làm theo các bước sau:</p>
+            <ol class="list-decimal list-inside text-gray-700">
+                <li>Truy cập trang <a href="mua-goi.html" class="text-blue-500 hover:text-blue-700">Gói Cước VPN</a>.</li>
+                <li>Chọn gói cước phù hợp với nhu cầu của bạn.</li>
+                <li>Nhấn nút "Mua" và làm theo hướng dẫn thanh toán.</li>
+                <li>Sau khi thanh toán thành công, bạn hãy ib admin để kích hoạt.</li>
+            </ol>
+        </div>
+
+        <!-- Hướng dẫn 2 -->
+        <div class="w-full max-w-2xl mb-8">
+            <h2 class="text-2xl font-bold text-blue-500 mb-4">2. Đăng kí gói nền</h2>
+            <p class="text-gray-700 mb-4">Sau khi được admin kích hoạt, vui lòng làm theo các bước sau:</p>
+            <ol class="list-decimal list-inside text-gray-700">
+                <li>Truy cập trang <a href="goi-nen.html" class="text-blue-500 hover:text-blue-700">Gói Nền</a>.</li>
+                <li>Chọn gói nền phù hợp với nhu cầu của bạn.</li>
+                <li>Đăng kí theo cú pháp mẫu.</li>
+            </ol>
+        </div>
+
+        <!-- Hướng dẫn 3 -->
+        <div class="w-full max-w-2xl mb-8">
+            <h2 class="text-2xl font-bold text-blue-500 mb-4">3. Cách sử dụng VPN</h2>
+            <p class="text-gray-700 mb-4">Để sử dụng VPN, vui lòng làm theo các bước sau:</p>
+            <ol class="list-decimal list-inside text-gray-700">
+                <li>Tải và cài đặt ứng dụng VPN:<br>- Nếu Android: Tải app V2rayNG bằng cách truy cập vào trang <a href="https://play.google.com/store/apps/details?id=com.v2ray.ang" class="text-blue-500 hover:text-blue-700">Google Play</a>.<br>- Nếu IOS: Ib cho admin để tải app Shadowrocket</li>
+                <li>Liên hệ cho admin để được hướng dẫn tiếp.</li>
+            </ol>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="flex flex-col items-center">
+            <p class="mb-4">© 2023 4G Việt Qualiti. Copyrights Nông Triệu Thái.</p>
+            <div class="flex space-x-4">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nút hỗ trợ khách hàng -->
+    <a href="https://zalo.me/0389293178" target="_blank" class="support-button">
+        <i class="fas fa-headset text-2xl"></i>
+    </a>
+</body>
+</html>

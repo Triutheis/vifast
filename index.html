@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4G Việt Qualiti - Trang chủ</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Custom CSS */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+        }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .cta-button {
+            background: linear-gradient(135deg, #3b82f6, #1e3a8a);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        /* Nút hỗ trợ khách hàng */
+        .support-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0068ff;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+        }
+        .support-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="flex justify-between items-center p-4 border-b">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-wifi text-blue-500 text-2xl"></i>
+            <span class="text-xl font-bold text-blue-500">4G VIỆT QUALITI</span>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="flex justify-center space-x-8 p-4 border-b">
+        <a href="index.html" class="text-blue-500 hover:text-blue-700">Trang chủ</a>
+        <a href="mua-goi.html" class="text-gray-700 hover:text-blue-500">Gói Cước VPN</a>
+        <a href="goi-nen.html" class="text-gray-700 hover:text-blue-500">Gói Nền</a>
+        <a href="lay-link.html" class="text-gray-700 hover:text-blue-500">Link Mạng</a>
+        <a href="huong-dan.html" class="text-gray-700 hover:text-blue-500">Hướng Dẫn</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section flex flex-col items-center justify-center py-16">
+        <h1 class="text-4xl font-bold mb-4">4G VIỆT QUALITI</h1>
+        <p class="text-center text-xl mb-8">Chào mừng bạn đến với dịch vụ 4G VPN chất lượng cao!</p>
+        <a href="packages.html" class="cta-button">Mua gói ngay</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="flex flex-col items-center py-12 bg-gray-50">
+        <h2 class="text-3xl font-bold text-blue-500 mb-8">Tại sao chọn chúng tôi?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-8">
+            <!-- Feature 1 -->
+            <div class="feature-card bg-white p-6 rounded-lg shadow-lg text-center">
+                <i class="fas fa-tachometer-alt text-4xl text-blue-500 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Tốc độ cao</h3>
+                <p class="text-gray-700">Truy cập internet với tốc độ ổn định và nhanh chóng, phù hợp cho mọi nhu cầu.</p>
+            </div>
+            <!-- Feature 2 -->
+            <div class="feature-card bg-white p-6 rounded-lg shadow-lg text-center">
+                <i class="fas fa-shield-alt text-4xl text-blue-500 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Bảo mật tuyệt đối</h3>
+                <p class="text-gray-700">Dữ liệu của bạn được mã hóa an toàn, đảm bảo riêng tư và bảo mật.</p>
+            </div>
+            <!-- Feature 3 -->
+            <div class="feature-card bg-white p-6 rounded-lg shadow-lg text-center">
+                <i class="fas fa-headset text-4xl text-blue-500 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Hỗ trợ 24/7</h3>
+                <p class="text-gray-700">Đội ngũ hỗ trợ luôn sẵn sàng giúp bạn mọi lúc, mọi nơi.</p>
+            </div>
+            <!-- Feature 4 -->
+            <div class="feature-card bg-white p-6 rounded-lg shadow-lg text-center">
+                <i class="fas fa-check-circle text-4xl text-blue-500 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Chất lượng đảm bảo</h3>
+                <p class="text-gray-700">Sản phẩm chất lượng, đáng tin cậy, bảo hành trong 7 ngày, đảm bảo sự hài lòng của khách hàng.</p>
+            </div>
+            <!-- Feature 5 -->
+            <div class="feature-card bg-white p-6 rounded-lg shadow-lg text-center">
+                <i class="fas fa-globe text-4xl text-blue-500 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">Truy cập toàn cầu</h3>
+                <p class="text-gray-700">Truy cập internet mọi lúc, mọi nơi, không giới hạn địa lý.</p>
+            </div> 
+            <!-- Feature 6 --> 
+            <div class="feature-card bg-white p-6 rounded-lg shadow-lg text-center">
+                <i class="fas fa-user-shield text-4xl text-blue-500 mb-4"></i>
+                <h3 class="text-xl font-bold mb-2">An toàn thông tin</h3>
+                <p class="text-gray-700">Bảo vệ thông tin cá nhân, tránh rủi ro khi sử dụng mạng công cộng.</p>
+            </div> 
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="flex flex-col items-center py-12">
+        <h2 class="text-3xl font-bold text-blue-500 mb-4">Bắt đầu ngay hôm nay!</h2>
+        <p class="text-center text-xl mb-8">Đăng ký ngay để trải nghiệm dịch vụ 4G VPN tốt nhất.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="flex flex-col items-center">
+            <p class="mb-4">© 2023 4G Việt Qualiti. Copyrights Nông Triệu Thái.</p>
+            <div class="flex space-x-4">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nút hỗ trợ khách hàng -->
+    <a href="https://zalo.me/0389293178" target="_blank" class="support-button">
+        <i class="fas fa-headset text-2xl"></i>
+    </a>
+</body>
+</html>

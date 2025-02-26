@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gói Cước VPN - 4G Việt Qualiti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        /* Custom CSS */
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .package-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            background-color: #f8f9fa;
+        }
+        .package-item h3 {
+            color: #3182ce;
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+        .package-item ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .zalo-button {
+            background-color: #0068ff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .zalo-button:hover {
+            background-color: #0056cc;
+        }
+        /* Nút hỗ trợ khách hàng */
+        .support-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #0068ff;
+            color: white;
+            padding: 12px 16px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 1000;
+        }
+        .support-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="flex justify-between items-center p-4 border-b">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-wifi text-blue-500 text-2xl"></i>
+            <span class="text-xl font-bold text-blue-500">4G VIỆT QUALITI</span>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="flex justify-center space-x-8 p-4 border-b">
+        <a href="index.html" class="text-gray-700 hover:text-blue-500">Trang chủ</a>
+        <a href="mua-goi.html" class="text-blue-500 hover:text-blue-700">Gói Cước VPN</a>
+        <a href="goi-nen.html" class="text-gray-700 hover:text-blue-500">Gói Nền</a>
+        <a href="lay-link.html" class="text-gray-700 hover:text-blue-500">Link Mạng</a>
+        <a href="huong-dan.html" class="text-gray-700 hover:text-blue-500">Hướng Dẫn</a>
+    </nav>
+
+    <!-- Main Content (Trang Gói Cước VPN) -->
+    <main class="flex flex-col items-center p-8">
+        <h1 class="text-3xl font-bold text-blue-500 mb-8">Gói Cước VPN</h1>
+        <div id="packages" class="w-full max-w-2xl"></div>
+    </main>
+
+    <!-- Modal -->
+    <div id="paymentModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-2xl font-bold mb-4">Thanh Toán</h2>
+            <p>Vui lòng chuyển khoản đến số tài khoản dưới đây:</p>
+            <p class="font-bold">STK: 102772</p>
+            <p class="font-bold">Ngân hàng: MB Bank</p>
+            <p class="font-bold">Chủ tài khoản: NONG TRIEU THAI</p>
+            <p class="mb-4">Nội dung chuyển khoản: <span id="paymentContent" class="font-bold"></span></p>
+            <p class="font-bold">Số tiền: <span id="paymentAmount" class="font-bold"></span></p>
+            <img src="anhqr.jpg" alt="QR Code" class="mx-auto mb-4">
+            <p>Xin cảm ơn!</p>
+            <!-- Nút liên hệ Zalo -->
+            <a href="https://zalo.me/0389293178" class="zalo-button" target="_blank">
+                <i class="fab fa-zalo"></i> Liên hệ Admin qua Zalo để được kích hoạt
+            </a>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // JSON Data (Can be fetched from an external file)
+        const data = {
+            packages: [
+                {
+                   id: 1,
+                   name: "Gói Basic",
+                   price: ["Gói 1 Tháng: 20,000 VND",  "Gói 3 Tháng: 60,000 VND"],
+                   features: ["Truy cập không giới hạn tốc độ cao", "Giới hạn thiết bị: 1 Thiết bị", "Hỗ trợ 24/7"]
+                },
+                {
+                   id: 2,
+                   name: "Gói Platium",
+                   price: ["Gói 1 Tháng: 25,000 VND",  "Gói 3 Tháng: 70,000 VND"],
+                   features: ["Truy cập không giới hạn tốc độ cao", "Giới hạn thiết bị: 1 Thiết bị", "Hỗ trợ 24/7"]
+                },
+                {
+                   id: 3,
+                   name: "Gói Ultimate",
+                   price: "Gói 1 Năm: 170,000 VND",
+                   features: ["Truy cập không giới hạn tốc độ cao", "Giới hạn thiết bị: 1 Thiết bị", "Hỗ trợ 24/7"]
+                },
+                {
+                   id: 4,
+                   name: "Gói Limited",
+                   price: ["Gói 2 Năm: 250,000 VND",  "Gói 3 Năm: 349,000 VND"],
+                   features: ["Truy cập không giới hạn tốc độ cao", "Giới hạn thiết bị: 1 Thiết bị", "Hỗ trợ 24/7"]
+                }
+            ]
+        };
+
+        // Function to render packages
+        function renderPackages() {
+            const packagesContainer = document.getElementById('packages');
+            packagesContainer.innerHTML = data.packages.map(pkg => `
+                <div class="package-item">
+                    <h3>${pkg.name}</h3>
+                    <p><strong>Giá:</strong> ${Array.isArray(pkg.price) ? pkg.price.join(', ') : pkg.price}</p>
+                    <select id="duration-${pkg.id}" class="mt-2 p-2 border rounded">
+                        ${Array.isArray(pkg.price) ? pkg.price.map((price, index) => `
+                            <option value="${price}">${price}</option>
+                        `).join('') : `<option value="${pkg.price}">${pkg.price}</option>`}
+                    </select>
+                    <ul>
+                        ${pkg.features.map(feature => `<li>${feature}</li>`).join('')}
+                    </ul>
+                    <button onclick="showPaymentModal(${pkg.id})" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Mua</button>
+                </div>
+            `).join('');
+        }
+
+        // Function to show payment modal
+        function showPaymentModal(packageId) {
+            const modal = document.getElementById('paymentModal');
+            const paymentContent = document.getElementById('paymentContent');
+            const paymentAmount = document.getElementById('paymentAmount');
+            const durationSelect = document.getElementById(`duration-${packageId}`);
+            const selectedPrice = durationSelect.value;
+
+            // Lấy thông tin gói
+            const selectedPackage = data.packages.find(pkg => pkg.id === packageId);
+
+            // Hiển thị thông tin thanh toán
+            paymentContent.textContent = `Mua ${selectedPackage.name}`;
+            paymentAmount.textContent = selectedPrice.split(':')[1].trim(); // Lấy số tiền từ chuỗi giá
+            modal.style.display = 'block';
+        }
+
+        // Function to close payment modal
+        function closePaymentModal() {
+            const modal = document.getElementById('paymentModal');
+            modal.style.display = 'none';
+        }
+
+        // Close modal when clicking on close button
+        document.querySelector('.close').addEventListener('click', closePaymentModal);
+
+        // Close modal when clicking outside of it
+        window.addEventListener('click', (event) => {
+            const modal = document.getElementById('paymentModal');
+            if (event.target === modal) {
+                closePaymentModal();
+            }
+        });
+
+        // Render packages on page load
+        document.addEventListener('DOMContentLoaded', renderPackages);
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="flex flex-col items-center">
+            <p class="mb-4">© 2023 4G Việt Qualiti. Copyrights Nông Triệu Thái.</p>
+            <div class="flex space-x-4">
+            </div>
+        </div>
+    </footer>
+
+    <!-- Nút hỗ trợ khách hàng -->
+    <a href="https://zalo.me/0389293178" target="_blank" class="support-button">
+        <i class="fas fa-headset text-2xl"></i>
+    </a>
+</body>
+</html>
