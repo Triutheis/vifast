@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gói Cước VPN - 4G Việt Qualiti</title>
+    <title>Dịch Vụ Khác - 4G Việt Qualiti</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
@@ -103,16 +103,16 @@
     <!-- Navigation -->
     <nav class="flex justify-center space-x-8 p-4 border-b">
         <a href="index.html" class="text-gray-700 hover:text-blue-500">Trang chủ</a>
-        <a href="mua-goi.html" class="text-blue-500 hover:text-blue-700">Gói Cước VPN</a>
+        <a href="mua-goi.html" class="text-gray-700 hover:text-blue-500">Dịch vụ khác</a>
         <a href="goi-nen.html" class="text-gray-700 hover:text-blue-500">Gói Nền</a>
         <a href="lay-link.html" class="text-gray-700 hover:text-blue-500">Link Mạng</a>
         <a href="huong-dan.html" class="text-gray-700 hover:text-blue-500">Hướng Dẫn</a>
-        <a href="dv-khac.html" class="text-gray-700 hover:text-blue-500">Dịch Vụ Khác</a>
+        <a href="dv-khac.html" class="text-blue-500 hover:text-blue-700">Dịch Vụ Khác</a>
     </nav>
 
     <!-- Main Content (Trang Gói Cước VPN) -->
     <main class="flex flex-col items-center p-8">
-        <h1 class="text-3xl font-bold text-blue-500 mb-8">Gói Cước VPN</h1>
+        <h1 class="text-3xl font-bold text-blue-500 mb-8">Dịch Vụ Khác</h1>
         <div id="packages" class="w-full max-w-2xl"></div>
     </main>
 
@@ -127,11 +127,11 @@
             <p class="font-bold">Chủ tài khoản: NONG TRIEU THAI</p>
             <p class="mb-4">Nội dung chuyển khoản: <span id="paymentContent" class="font-bold"></span></p>
             <p class="font-bold">Số tiền: <span id="paymentAmount" class="font-bold"></span></p>
-            <img src="anhqr.jpg" alt="QR Code" class="mx-auto mb-4">
+            <img src="images/anhqr.jpg" alt="QR Code" class="mx-auto mb-4">
             <p>Xin cảm ơn!</p>
             <!-- Nút liên hệ Zalo -->
             <a href="https://zalo.me/0389293178" class="zalo-button" target="_blank">
-                <i class="fab fa-zalo"></i> Liên hệ Admin qua Zalo để được kích hoạt
+                <i class="fab fa-zalo"></i> Liên hệ Admin qua Zalo để được hướng dẫn
             </a>
         </div>
     </div>
@@ -143,27 +143,21 @@
             packages: [
                 {
                    id: 1,
-                   name: "Gói Basic",
-                   price: ["Gói 1 Tháng: 20,000 VND",  "Gói 3 Tháng: 60,000 VND"],
-                   features: ["Truy cập không giới hạn tốc độ cao", "Giới hạn thiết bị: 1 Thiết bị", "Hỗ trợ 24/7"]
+                   name: "Combo Ytb + Locket",
+                   price: ["40,000 VND / Dài Hạn"],
+                   features: ["Combo rẻ hơn", "Bảo hành 6 tháng", "Hỗ trợ 24/7"]
                 },
                 {
                    id: 2,
-                   name: "Gói Platium",
-                   price: ["Gói 1 Tháng: 25,000 VND",  "Gói 3 Tháng: 70,000 VND"],
-                   features: ["Truy cập không giới hạn tốc độ cao", "Giới hạn thiết bị: 1 Thiết bị", "Hỗ trợ 24/7"]
+                   name: "Locket Gold",
+                   price: ["30,000 VND / Dài Hạn"],
+                   features: ["Không có huy hiệu Gold", "Còn lại full chức năng"]
                 },
                 {
                    id: 3,
-                   name: "Gói Ultimate",
-                   price: "Gói 1 Năm: 170,000 VND",
-                   features: ["Truy cập không giới hạn tốc độ cao", "Giới hạn thiết bị: 1 Thiết bị", "Hỗ trợ 24/7"]
-                },
-                {
-                   id: 4,
-                   name: "Gói Limited",
-                   price: ["Gói 2 Năm: 250,000 VND",  "Gói 3 Năm: 349,000 VND"],
-                   features: ["Truy cập không giới hạn tốc độ cao", "Giới hạn thiết bị: 1 Thiết bị", "Hỗ trợ 24/7"]
+                   name: "Youtube Premium",
+                   price: ["20,000 VND / Dài Hạn"],
+                   features: ["Xem video không quảng cáo", "PiP (hình trong hình)", "Vừa nghe nhạc vừa tắt màn hình"]
                 }
             ]
         };
@@ -200,8 +194,8 @@
             const selectedPackage = data.packages.find(pkg => pkg.id === packageId);
 
             // Hiển thị thông tin thanh toán
-            paymentContent.textContent = `Mua ${selectedPackage.name}`;
-            paymentAmount.textContent = selectedPrice.split(':')[1].trim(); // Lấy số tiền từ chuỗi giá
+            paymentContent.textContent = `Mua gói ${selectedPackage.name}`;
+            paymentAmount.textContent = selectedPrice; // Hiển thị giá đã chọn từ dropdown
             modal.style.display = 'block';
         }
 
